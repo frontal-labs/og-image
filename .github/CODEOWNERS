@@ -1,0 +1,50 @@
+# CODEOWNERS File
+# This file defines individuals or teams that are responsible for code in this repository.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Global owners - will be default owners for everything in the repo
+* @frontal/core-team @frontal/maintainers
+
+# Repository-wide configuration files
+/.github/ @frontal/devops-team
+/.gitignore @frontal/core-team
+LICENSE @frontal/legal-team
+README.md @frontal/documentation-team
+
+# Documentation
+*.md @frontal/documentation-team
+CONTRIBUTING.md @frontal/core-team @frontal/documentation-team
+
+# API - Serverless Open Graph image generation service
+/api/ @frontal/backend-team
+/api/_fonts/ @frontal/design-team
+/api/_lib/ @frontal/backend-team
+
+# Web - Frontend components and templates
+/web/ @frontal/frontend-team
+
+# Public assets and static files
+/public/ @frontal/design-team
+
+# Package management and dependencies
+package.json @frontal/devops-team
+bunfig.toml @frontal/devops-team
+
+# TypeScript configuration
+tsconfig.json @frontal/devops-team
+**/tsconfig.json @frontal/devops-team
+
+# Security and compliance
+SECURITY.md @frontal/security-team
+.github/SECURITY.md @frontal/security-team
+**/*security* @frontal/security-team
+
+# Legal and compliance
+LICENSE @frontal/legal-team
+
+# Special files that require specific approval
+CODE_OF_CONDUCT.md @frontal/core-team @frontal/legal-team
+
+# Emergency override - critical security files can be modified by security team
+# This should be used sparingly and only for emergency security fixes
+**/CRITICAL_SECURITY_FIX* @frontal/security-team @frontal/core-team
