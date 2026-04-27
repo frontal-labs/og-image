@@ -31,16 +31,38 @@ describe("validateOGParams", () => {
     });
   });
 
-  it("throws when only title is provided", () => {
-    expect(() => validateOGParams("Title", "")).toThrow(ValidationError);
-    expect(() => validateOGParams("Title", undefined)).toThrow(ValidationError);
+  it("allows title without description", () => {
+    expect(validateOGParams("Title", "")).toEqual({
+      title: "Title",
+      description: undefined,
+      label: undefined,
+      quality: 1,
+      theme: "light",
+    });
+    expect(validateOGParams("Title", undefined)).toEqual({
+      title: "Title",
+      description: undefined,
+      label: undefined,
+      quality: 1,
+      theme: "light",
+    });
   });
 
-  it("throws when only description is provided", () => {
-    expect(() => validateOGParams("", "Description")).toThrow(ValidationError);
-    expect(() => validateOGParams(undefined, "Description")).toThrow(
-      ValidationError
-    );
+  it("allows description without title", () => {
+    expect(validateOGParams("", "Description")).toEqual({
+      title: undefined,
+      description: "Description",
+      label: undefined,
+      quality: 1,
+      theme: "light",
+    });
+    expect(validateOGParams(undefined, "Description")).toEqual({
+      title: undefined,
+      description: "Description",
+      label: undefined,
+      quality: 1,
+      theme: "light",
+    });
   });
 
   it("throws when title is too long", () => {
