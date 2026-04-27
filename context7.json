@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "api": {
+    "baseUrl": "https://context7.com/api",
+    "version": "v2"
+  },
+  "libraries": {
+    "next": {
+      "id": "/vercel/next.js",
+      "version": "16.2.4",
+      "priority": "high"
+    },
+    "react": {
+      "id": "/facebook/react",
+      "version": "19.2.4",
+      "priority": "high"
+    },
+    "typescript": {
+      "id": "/microsoft/typescript",
+      "version": "5.0",
+      "priority": "medium"
+    }
+  },
+  "mcp": {
+    "servers": {
+      "context7": {
+        "command": "npx",
+        "args": ["-y", "@upstash/context7-mcp"],
+        "env": {
+          "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}"
+        }
+      }
+    }
+  },
+  "preferences": {
+    "autoLookup": true,
+    "cacheResponses": true,
+    "maxCacheAge": 3600,
+    "preferOfficialDocs": true
+  },
+  "exclusions": ["node_modules/**", ".next/**", "dist/**", "build/**"]
+}
