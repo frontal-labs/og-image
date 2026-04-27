@@ -29,7 +29,7 @@
     "deploy": "vercel --prod",
     "test": "vitest",
     "test:run": "vitest run",
-    "prepare": "husky install",
+    "prepare": "husky install || true",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "changeset publish",
