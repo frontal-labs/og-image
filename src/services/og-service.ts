@@ -20,13 +20,12 @@ export interface OGServiceOptions {
   width?: number;
 }
 
-export const DEFAULT_OG_OPTIONS: Required<OGServiceOptions> = {
+export const DEFAULT_OG_OPTIONS = {
   width: 1200,
   height: 628,
-  label: "Open Graph",
   theme: "light",
   quality: 1,
-};
+} satisfies Required<Omit<OGServiceOptions, "label">>;
 
 let figtreeRegularFont: ArrayBuffer | undefined;
 let figtreeSemiboldFont: ArrayBuffer | undefined;
@@ -61,7 +60,7 @@ export async function generateOGImage(
   description?: unknown,
   options: OGServiceOptions = {}
 ): Promise<ImageResponse> {
-  const finalLabel = options.label ?? DEFAULT_OG_OPTIONS.label;
+  const finalLabel = options.label;
   const finalTheme = options.theme ?? DEFAULT_OG_OPTIONS.theme;
   const finalQuality = options.quality ?? DEFAULT_OG_OPTIONS.quality;
   const params = validateOGParams(
@@ -74,7 +73,7 @@ export async function generateOGImage(
   const finalOptions = {
     ...DEFAULT_OG_OPTIONS,
     ...options,
-    label: params.label ?? DEFAULT_OG_OPTIONS.label,
+    label: params.label,
     quality: params.quality,
     theme: params.theme,
   };
@@ -92,7 +91,7 @@ export async function generateOGImage(
         ? OGImage({
             title: params.title,
             description: params.description,
-            label: params.label ?? DEFAULT_OG_OPTIONS.label,
+            label: params.label,
             theme: params.theme,
           })
         : createElement(
@@ -120,7 +119,7 @@ export async function generateOGImage(
               OGImage({
                 title: params.title,
                 description: params.description,
-                label: params.label ?? DEFAULT_OG_OPTIONS.label,
+                label: params.label,
                 theme: params.theme,
               })
             )

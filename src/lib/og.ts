@@ -92,15 +92,6 @@ export function validateOGParams(
   );
   const normalizedLabel = normalizeOptionalText(label, LABEL_MAX_LENGTH);
 
-  if (
-    (normalizedTitle && !normalizedDescription) ||
-    (!normalizedTitle && normalizedDescription)
-  ) {
-    throw new ValidationError(
-      "Title and description must be provided together"
-    );
-  }
-
   return {
     title: normalizedTitle,
     description: normalizedDescription,
