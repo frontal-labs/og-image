@@ -1,25 +1,5 @@
 {
   "version": 2,
-  "functions": {
-    "src/app/route.tsx": {
-      "runtime": "edge",
-      "maxDuration": 30
-    },
-    "src/app/health/route.ts": {
-      "runtime": "edge",
-      "maxDuration": 10
-    }
-  },
-  "routes": [
-    {
-      "src": "/health",
-      "dest": "/src/app/health/route.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/src/app/route.tsx"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
