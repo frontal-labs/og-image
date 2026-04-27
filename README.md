@@ -1,4 +1,10 @@
-# OG Image Service
+<picture>
+  <source srcset="./banner-dark.png" media="(prefers-color-scheme: dark)">
+  <source srcset="./banners.png" media="(prefers-color-scheme: light)">
+  <img src="./banner-dark.png" alt="Frontal Website Banner">
+</picture>
+
+# Frontal OG Image
 
 A production-focused Open Graph image generation service built with `Next.js 16` and `next/og`.
 
