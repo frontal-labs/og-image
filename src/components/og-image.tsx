@@ -18,7 +18,9 @@ export function OGImage({
 }: OGImageProps): ReactElement {
   const surface = theme === "light" ? "light" : "dark";
   const hasContent =
-    typeof title === "string" && typeof description === "string";
+    typeof title === "string" ||
+    typeof description === "string" ||
+    typeof label === "string";
 
   if (hasContent) {
     return (

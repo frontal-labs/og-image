@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 import { FrontalWordmark } from "@/components/brand/frontal-wordmark";
-import type { OGThemeProps } from "./theme-props";
+import type { OGThemeProps } from "../../types/theme-props";
 
 type Surface = "dark" | "light";
 
@@ -13,7 +13,7 @@ const SURFACES: Record<
 > = {
   dark: {
     background: "#000000",
-    logo: "#f5f5f7",
+    logo: "#ffffff",
   },
   light: {
     background: "#ffffff",

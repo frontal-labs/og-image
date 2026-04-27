@@ -5,6 +5,9 @@ export interface FrontalMarkProps {
   size?: number;
 }
 
+const VIEWBOX_WIDTH = 162.5;
+const VIEWBOX_HEIGHT = 259.99;
+const CELL_SIZE = 32.5;
 const RECT_COORDINATES = [
   [32.5, 32.5],
   [0, 65],
@@ -26,24 +29,35 @@ export function FrontalMark({
   color = "currentColor",
   size = 72,
 }: FrontalMarkProps): ReactElement {
+  const scale = size / VIEWBOX_WIDTH;
+  const height = VIEWBOX_HEIGHT * scale;
+  const cellSize = CELL_SIZE * scale;
+
   return (
-    <svg
+    <div
       aria-hidden="true"
-      fill="none"
-      height={(size * 259.99) / 162.5}
-      viewBox="0 0 162.5 259.99"
-      width={size}
+      style={{
+        width: size,
+        height,
+        display: "flex",
+        position: "relative",
+        flexShrink: 0,
+      }}
     >
       {RECT_COORDINATES.map(([x, y]) => (
-        <rect
-          fill={color}
-          height="32.5"
+        <div
           key={`${x}-${y}`}
-          width="32.5"
-          x={x}
-          y={y}
+          style={{
+            position: "absolute",
+            left: x * scale,
+            top: y * scale,
+            width: cellSize,
+            height: cellSize,
+            display: "flex",
+            background: color,
+          }}
         />
       ))}
-    </svg>
+    </div>
   );
 }
