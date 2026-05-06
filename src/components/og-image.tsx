@@ -1,7 +1,7 @@
 import type { ReactElement } from "react";
 import type { OGTheme } from "@/lib/og";
 import { CenteredLogoTheme } from "./themes/centered-logo-theme";
-import { LeftCopyTheme } from "./themes/left-copy-theme";
+import { MinimalTheme } from "./themes/minimal-theme";
 
 export interface OGImageProps {
   description?: string;
@@ -24,7 +24,7 @@ export function OGImage({
 
   if (hasContent) {
     return (
-      <LeftCopyTheme
+      <MinimalTheme
         description={description}
         label={label}
         surface={surface}
